@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <style>
+        /* Apply border-box model to all elements */
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(to right, rgb(106, 32, 106),rgb(68, 68, 215));
+        }
+        
+        /* Main container for the Todo app */
+        .todo-app{
+            width: 98%;
+            height: 500px;
+            background-color: white;
+            margin-top:40px;
+            margin-left:1%;         /* Even spacing from left and right */
+            border-radius: 10px;    /* Rounded corners */
+            padding-top:20px;
+        }
+
+        .title{
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Form area that holds the input and add button */
+        .todo-form{
+            margin-top:30px;
+            margin-left:20px;
+            display:flex;       /* Place input and button side by side */
+            margin-bottom: 20px;
+        }
+        
+        /* Style for the input field */
+        .todo-input{
+            padding-left: 15px;
+            border: 1px solid gray;
+            outline:none;           /* Remove border on click */
+            width:60%;
+            height:50px;
+            border-radius: 20px 0 0 20px;
+        }
+
+        /* Style for the Add Todo button */
+        .todo-button{
+            background: linear-gradient(to right, rgb(106, 32, 106),rgb(68, 68, 215));
+            width:100px;
+            height:50px;
+            border-radius:0 20px 20px 0;
+            text-align: center;
+            color:white;
+            line-height:50px;
+            cursor: pointer;
+            user-select: none;          /* Prevent text from being selected */
+
+        }
+
+        /* Style for each todo item */
+        .item{
+            display:flex;                       /* Align checkbox/text and delete button horizontally */
+            align-items: center;
+            justify-content: space-between;     /* Push content to both sides */
+            width:80%;
+            height:50px;
+            margin: 8px auto;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: rgba(149,157,165, 0.2) 0px 8px 10px;
+        }
+
+        .delete{
+            color: red;
+        }
+
+        /* Style for completed items */
+        .completed{
+            text-decoration: line-through;
+            opacity:0.4;
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <!-- Main Todo App container -->
+    <div class="todo-app">
+
+        <div class="title">Todo-App</div>
+
+        <!-- Form area: input + button -->
+        <div class="todo-form">
+            <input class="todo-input" type="text" placeholder="add a todo">
+            <div class="todo-button">Add Todo</div>
+        </div>
+
+        <!-- Example completed todo item -->
+        <div class="item completed">
+            <div>
+                <input type="checkbox">
+                <span class="name">blank</span>
+            </div>
+
+            <div class="delete">delete</div>
+        </div>
+
+        <!-- Example active (not completed) todo item -->
+        <div class="item">
+            <div>
+                <input type="checkbox">
+                <span class="name">blank</span>
+            </div>
+
+            <div class="delete">delete</div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>
