@@ -28,11 +28,22 @@ function addTodo() {
     //Append the new todo item to the todo-app container
     document.querySelector(".todo-list").appendChild(item);
 
-    // Bind click event to the delete button
+    // Attach an event listener to trigger a function when the specified event occurs
     item.querySelector(".delete").addEventListener("click", deleteTodo);
+    item.querySelector("input[type='checkbox']").addEventListener("change", toggleCompleted);
+
 }
 
-function toggleCompleted(){
+function toggleCompleted(event){
+    //get the checkbox that was clicked
+    const checkbox = event.target;
+    //find the parent .item
+    const todoItem = checkbox.closest(".item");
+    
+    // Toggle the "completed" class:
+    // - If the element already has the class, remove it
+    // - If it doesn't, add it
+    todoItem.classList.toggle("completed");
 
 }
 
@@ -53,5 +64,5 @@ function deleteTodo(event) {
 }
 
 
-// Attach an event listener to trigger a function when the specified event occurs
+// Bind click event (addTodo function) to the Add Todo button
 document.querySelector(".todo-button").addEventListener("click", addTodo);
