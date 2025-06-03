@@ -18,7 +18,7 @@ function addTodo() {
     item.innerHTML = `
             <div>
                 <input type="checkbox">
-                <span class="name">${value}</span>
+                <span class="content">${value}</span>
             </div>
             <div>
                 <span class="edit">Edit</span>
@@ -31,7 +31,7 @@ function addTodo() {
     // Attach an event listener to trigger a function when the specified event occurs
     item.querySelector(".delete").addEventListener("click", deleteTodo);
     item.querySelector("input[type='checkbox']").addEventListener("change", toggleCompleted);
-
+    item.querySelector(".edit").addEventListener("click", editTodo);
 }
 
 function toggleCompleted(event){
@@ -39,7 +39,7 @@ function toggleCompleted(event){
     const checkbox = event.target;
     //find the parent .item
     const todoItem = checkbox.closest(".item");
-    
+
     // Toggle the "completed" class:
     // - If the element already has the class, remove it
     // - If it doesn't, add it
@@ -47,8 +47,22 @@ function toggleCompleted(event){
 
 }
 
-function editTodo(){
+function editTodo(event){
+    //get the edit button that was clicked
+    const editButton = event.target;
+    const todoItem = editButton.closest(".item");
+    const content = todoItem.querySelector(".content"); //Get the span that displays the todo text
 
+    //toggle editing mode
+    if(!content.isContentEditable) {
+        content.contentEditable = "true";
+        content.focus();
+        editButton.textContent = "Save";
+    } 
+    else{
+        content.contentEditable = "false";
+        editButton.textContent = "Edit";
+    }
 }
 
 function deleteTodo(event) {
