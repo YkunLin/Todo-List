@@ -70,7 +70,7 @@
             align-items: center;
             justify-content: space-between;     /* Push content to both sides */
             width:80%;
-            height:50px;
+            /* height:50px; */
             margin: 25px auto;
             padding: 15px;
             border-radius: 20px;
@@ -81,6 +81,22 @@
             color: red;
             cursor: pointer;
             user-select: none;
+        }
+
+        .edit{
+            color: green;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .content[contenteditable="true"]{
+            display: inline-block;
+            min-width: 200px;
+            min-height: 40px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #efeeee;
+            line-height: 1.4;
         }
 
         /* Style for completed items */
@@ -111,7 +127,7 @@
             <div class="item">
                 <div>
                     <input type="checkbox">
-                    <span class="name">Example</span>
+                    <span class="content">Example</span>
                 </div>
                 <div>
                     <span class="edit">Edit</span>
