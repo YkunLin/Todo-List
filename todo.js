@@ -27,6 +27,9 @@ function addTodo() {
 
     //Append the new todo item to the todo-app container
     document.querySelector(".todo-list").appendChild(item);
+
+    // Bind click event to the delete button
+    item.querySelector(".delete").addEventListener("click", deleteTodo);
 }
 
 function toggleCompleted(){
@@ -37,8 +40,16 @@ function editTodo(){
 
 }
 
-function deleteTodo() {
+function deleteTodo(event) {
+    //Get the delete button that was clicked
+    const deleteButton = event.target;
+    console.log(deleteButton);
 
+    //Find its closest parent with class "item"
+    const todoItem = deleteButton.closest(".item");
+
+    //Remove that parent from the DOM
+    todoItem.remove();
 }
 
 
