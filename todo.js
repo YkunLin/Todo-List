@@ -27,6 +27,9 @@ function addTodo() {
 
     //Append the new todo item to the todo-app container
     document.querySelector(".todo-list").appendChild(item);
+    //Clear the input field after adding
+    document.querySelector(".todo-input").value = "";
+    
     saveTodos(); //save after adding
 
     // Attach an event listener to trigger a function when the specified event occurs
