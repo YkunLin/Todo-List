@@ -151,5 +151,12 @@ function createTodoFromStorage(text, completed){
 // Bind click event (addTodo function) to the Add Todo button
 document.querySelector(".todo-button").addEventListener("click", addTodo);
 
+//Attach key listener to the input field (allow users use 'Enter key' to add todo)
+document.querySelector(".todo-input").addEventListener("keydown", function(event){
+    if(event.key == "Enter") {
+        addTodo();
+    }
+});
+
 // When the DOM is fully loaded, load saved todos from localStorage
 window.addEventListener("DOMContentLoaded", loadTodos);
